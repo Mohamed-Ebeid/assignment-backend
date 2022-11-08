@@ -1,6 +1,7 @@
 import User from "../models/user.js";
 import Venue from "../models/venues.js";
 
+//signin for players
 export const signin = async (req, res) => {
   //console.log(req.body);
   const { username, password } = req.body;
@@ -33,6 +34,7 @@ export const signin = async (req, res) => {
 //   return res.status(200).send("Created!!");
 // };
 
+//for admin to add venues
 export const addVenue = async (req, res) => {
   //console.log(req.body);
   const { admin, name } = req.body;
@@ -59,13 +61,14 @@ export const addFav = async (req, res) => {
     const venuev = await Venue.findOne({ name });
     //console.log(venuev._id);
     const useru = await User.findOneAndUpdate(
-      { user },
+      { username: user },
       { $set: { favVenue: venuev } },
       {
         new: true,
       }
     );
     //console.log(useru.favVenue);
+    //res.json(useru);
     res.json("Added!");
   } catch (e) {
     console.log(e);
@@ -92,8 +95,9 @@ export const removeFav = async (req, res) => {
 export const userInfo = async (req, res) => {
   //console.log(req.body);
   try {
-    const user = await User.findOne({ user: req.body.user });
-    res.json(user);
+    const { user } = req.body;
+    const userv = await User.findOne({ username: user });
+    res.json(userv);
   } catch (e) {
     console.log(e);
   }

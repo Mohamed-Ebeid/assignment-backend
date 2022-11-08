@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 const { Schema } = mongoose;
+//Model for mongoDB
 
 const venuesSchema = new Schema(
   {
