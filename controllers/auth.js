@@ -54,6 +54,7 @@ export const allVenue = async (req, res) => {
   res.json(venue);
 };
 
+//When player press make fav
 export const addFav = async (req, res) => {
   // console.log(req.body);
   const { name, user } = req.body;
