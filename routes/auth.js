@@ -20,7 +20,7 @@ router.post("/signin", signin);
 router.post("/addvenue", addVenue);
 router.get("/allvenue", allVenue);
 router.post("/addfav", addFav);
-router.get("/userInfo", userInfo);
+router.post("/userInfo", userInfo);
 router.post("/removefav", removeFav);
 // router.post("/signup", signup);
 

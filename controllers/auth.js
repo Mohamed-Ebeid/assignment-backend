@@ -94,7 +94,7 @@ export const removeFav = async (req, res) => {
 };
 
 export const userInfo = async (req, res) => {
-  //console.log(req.body);
+  console.log(req.body);
   try {
     const { user } = req.body;
     const userv = await User.findOne({ username: user });
